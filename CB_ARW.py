@@ -78,8 +78,8 @@ def plot_data_vs_time(df, col):
         
 # plot_data_vs_time(df=df, col="scaledAccelY")
 
-# for columns in df.columns[1:]:
-#     plot_data_vs_time(df=df, col=columns)
+'''for columns in df.columns[1:]:
+    plot_data_vs_time(df=df, col=columns)'''
 
 def mean(df, col):
     df = df.copy()
@@ -95,8 +95,7 @@ def standard_deviation(df, col):
     df = df.copy()
     
     print(np.std(pd.to_numeric(df[col], errors="coerce")))
-
-
+    
 '''for column in df.columns[1:]:
     print(column)
     mean(df=df, col=column)
@@ -107,11 +106,34 @@ df = df.copy()
 
 # Convertir Time a numérico
 
-theta_error = np.cumsum(df.columns[3]) * dt
+# theta_error = np.cumsum(df.columns[3]) * dt
 
-plt.plot(df.columns[0], theta_error)
-plt.xlabel("Tiempo [s]")
-plt.ylabel("Error angular [deg]")
-plt.title("Ruido blanco integrado: Angle Random Walk")
-plt.grid()
-plt.show()
+# plt.plot(df.columns[0], theta_error)
+# plt.xlabel("Tiempo [s]")
+# plt.ylabel("Error angular [deg]")
+# plt.title("Ruido blanco integrado: Angle Random Walk")
+# plt.grid()
+# plt.show()
+
+def plot_integ_data_vs_time(df, col_input, col_output):
+    df = df.copy()
+
+    df[col_output] = np.cumsum(df[col_input]) * dt
+
+    t = (df["Time"] - df["Time"].iloc[0]) / 1e9
+
+    y = df[col_output]
+
+    plt.figure(figsize=(10, 4))
+    plt.plot(t, y)
+    plt.xlabel("Tiempo [s]")
+    plt.ylabel(col_output)
+    plt.title(f"{col_output} vs Tiempo")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+for column in df.columns[1:]:
+    plot_integ_data_vs_time(df=df, col_input=column, col_output=column+"_inte")
+
+print(df.columns[:])
