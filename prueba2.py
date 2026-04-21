@@ -13,6 +13,8 @@ theta = np.cumsum(gyro_noise) * dt
 
 time = np.arange(n) * dt
 
+print(time)
+
 plt.plot(time, theta)
 plt.xlabel("Tiempo [s]")
 plt.ylabel("Ángulo integrado [deg]")
