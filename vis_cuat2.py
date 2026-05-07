@@ -328,7 +328,7 @@ def plot_orientation_slider(df, rot):
 
 if __name__ == "__main__":
 
-    filepath = r"04_05_2026\dafultsetting\QuaternionEst__1.csv"  # Cambia por tu archivo real
+    filepath = r"04_05_2026\QuaternionEst__1.csv"  # Cambia por tu archivo real
 
     df = read_est_quaternion_file(filepath, only_valid=True)
 
