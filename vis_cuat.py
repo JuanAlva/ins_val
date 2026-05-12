@@ -177,7 +177,7 @@ def plot_orientation_slider(df, rot):
 
     # Estado inicial
     idx0 = 0
-    R_nb = rot[idx0].as_matrix()
+    R_nb = rot[idx0].as_matrix().T
 
     rotated_axes = R_nb @ body_axes
 
@@ -234,7 +234,7 @@ def plot_orientation_slider(df, rot):
         for qv in quivers:
             qv.remove()
 
-        R_nb = rot[idx].as_matrix()
+        R_nb = rot[idx].as_matrix().T
         rotated_axes = R_nb @ body_axes
 
         quivers = []

@@ -1,4 +1,4 @@
-Time,GPS_ts,orientQuaternion[0],orientQuaternion[1],orientQuaternion[2],orientQuaternion[3],flag
+Time,GPS_ts,estOrientQuaternion[0],estOrientQuaternion[1],estOrientQuaternion[2],estOrientQuaternion[3],flag
 1778256575378,  1503.555, 0.592625, 0.015228, 0.013114,-0.805228,0
 1778256575378,  1503.580, 0.555317, 0.015802, 0.012442,-0.831395,0
 1778256575378,  1503.600, 0.579211, 0.015435, 0.012911,-0.814929,0

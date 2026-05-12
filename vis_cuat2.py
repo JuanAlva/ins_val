@@ -103,7 +103,7 @@ def read_est_quaternion_file(filepath, only_valid=True):
     df["q3"] = q[:, 3]
 
     # Tiempo relativo en segundos usando Time en nanosegundos Unix
-    df["t"] = (df["Time"] - df["Time"].iloc[0]) / 1e9
+    df["t"] = (df["Time"] - df["Time"].iloc[0]) / 1000.0 #1e9
 
     # Delta tiempo, útil para revisar frecuencia real
     df["dt"] = df["t"].diff()
@@ -231,7 +231,7 @@ def plot_orientation_slider(df, rot):
     origin = np.zeros(3)
 
     idx0 = 0
-    R_nb = rot[idx0].as_matrix()
+    R_nb = rot[idx0].as_matrix().T
     rotated_axes = R_nb @ body_axes
 
     quivers = []
@@ -284,7 +284,7 @@ def plot_orientation_slider(df, rot):
         for qv in quivers:
             qv.remove()
 
-        R_nb = rot[idx].as_matrix()
+        R_nb = rot[idx].as_matrix().T
         rotated_axes = R_nb @ body_axes
 
         quivers = []
