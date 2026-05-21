@@ -1,0 +1,1 @@
+Time,GPS_ts,fGPS_ts,scaledAccelX,scaledAccelY,scaledAccelZ,deltaVelX,deltaVelY,deltaVelZ,estLinearAccelX,estLinearAccelY,estLinearAccelZ,estLinearAccel:valid,estAngularRateX,estAngularRateY,estAngularRateZ,estAngularRate:valid,estGravityX,estGravityY,estGravityZ,estGravity:valid,flag
